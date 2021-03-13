@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bookcontroller = require('./controllers/books');
+const usercontroller = require('./controllers/users');
 const cors = require('cors');
 mongoose
   .connect('mongodb://localhost:27017/first-data', {
@@ -25,3 +26,4 @@ app.get('/books/:id', bookcontroller.findBook);
 app.patch('/books/:id', bookcontroller.updatebook);
 app.delete('/books/:id', bookcontroller.deletbooks);
 app.get('/login', bookcontroller.loginroute);
+app.post('/user', usercontroller.adduser);
